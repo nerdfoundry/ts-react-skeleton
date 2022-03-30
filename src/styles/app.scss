@@ -1,0 +1,19 @@
+body {
+  background: #000;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+}
+
+#loading {
+  font-size: 32px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}

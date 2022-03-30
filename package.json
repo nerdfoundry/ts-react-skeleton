@@ -1,0 +1,38 @@
+{
+  "name": "new-project",
+  "version": "0.1.0",
+  "description": "",
+  "author": "nfgCodex <nfg.codex@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "docker-compose": "npm i --force && echo \"Running in docker-compose... You should run interactively by attaching:\n\t\tdocker exec -it `hostname` npm run dev\" && tail -f /dev/null",
+    "build": "npm run clean && npm run check && NODE_ENV=production node ./build.mjs",
+    "dev": "NODE_ENV=development concurrently -r 'npm:dev-concurrently*'",
+    "dev-concurrently:mkdir": "mkdir -p dist",
+    "dev-concurrently:watch": "nodemon -e tsx,ts,js,jsx,json,scss --watch ./src ./build.mjs",
+    "dev-concurrently:autoLint": "nodemon -e js,jsx,ts,tsx,json --exec \"npm run typecheck\"",
+    "typecheck": "tsc --noEmit && echo \"No Type Errors!\""
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@chialab/esbuild-plugin-env": "^0.15.3",
+    "@chialab/esbuild-plugin-html": "^0.15.9",
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "concurrently": "^7.0.0",
+    "esbuild": "^0.14.29",
+    "esbuild-plugin-sass": "^1.0.1",
+    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.3"
+  },
+  "alias": {
+    "_Shared": "./src/scripts/shared",
+    "-": "./src"
+  }
+}

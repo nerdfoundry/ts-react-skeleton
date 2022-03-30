@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  new-project:
+    build:
+      target: production
+    environment:
+      - TZ=America/Chicago

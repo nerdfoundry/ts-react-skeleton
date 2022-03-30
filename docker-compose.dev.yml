@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  new-project:
+    build:
+      target: development
+    volumes:
+      - .:/build
+      # - /build/node_modules
+    environment:
+      - NODE_OPTIONS=--enable-source-maps --trace-warnings
+    ports:
+      - '9229:9229'
+      - '9000:9000'
